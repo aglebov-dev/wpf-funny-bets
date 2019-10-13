@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.SuperexpressDrawsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Company.Wpf.Core"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:design="clr-namespace:Company.Client.Bets.Design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{d:DesignInstance design:SuperexpressDrawsDesign,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="450"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Padding="12,6,6,6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         Margin="0,9,0,0"
+                         Padding="9,3"
+                         Background="{StaticResource Brush.BackgroundThird}"
+                         Style="{StaticResource Style.TextBox.WaterHiddenToolTip.RightAngles}"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Delay=300}"
+                         TextWrapping="NoWrap"
+                         ToolTip="поиск тиражей" />
+                <Button Command="{Binding DataContext.CreateSuperexpressBetCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor, AncestorLevel=2}}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <DockPanel>
+                        <Path Height="10"
+                              Data="{StaticResource Drawing.Geometry.Plus}"
+                              Style="{StaticResource Style.Path.ForegroundFill}" />
+                        <TextBlock Margin="6,0"
+                                   VerticalAlignment="Center"
+                                   FontFamily="{StaticResource Font.RobotoMedium}"
+                                   FontSize="13"
+                                   Text="ДОБАВИТЬ" />
+                    </DockPanel>
+                </Button>
+            </Grid>
+        </Border>
+        <ListBox Grid.Row="1"
+                 Grid.Column="1"
+                 Padding="9,0,0,0"
+                 HorizontalContentAlignment="Stretch"
+                 Background="{StaticResource Brush.ItemBackgroundFirst}"
+                 ItemsSource="{Binding Draws}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Style="{StaticResource Style.ListBox.Transparent.InnerScroll}">
+            <ListBox.ItemContainerStyle>
+                <Style BasedOn="{StaticResource Style.ListBoxItem.Transparent}"
+                       TargetType="ListBoxItem">
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}"
+                                     Value="True">
+                            <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Button x:Name="button"
+                            Padding="12,5,6,5"
+                            BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                            BorderThickness="0,0,0,1"
+                            Command="{Binding DataContext.SelectDrawCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                            CommandParameter="{Binding}"
+                            Style="{StaticResource Style.Button.Transparent}">
+                        <StackPanel>
+                            <DockPanel>
+                                <controls:HighlightTextBlock Width="60"
+                                                             Margin="0,0,0,0"
+                                                             VerticalAlignment="Bottom"
+                                                             FontFamily="{StaticResource Font.RobotoMedium}"
+                                                             FontSize="12"
+                                                             Foreground="{StaticResource Brush.Color6.5}"
+                                                             HighlightWords="{Binding DataContext.SearchParts, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                             Text="{Binding DrawCode}" />
+                                <controls:HighlightTextBlock Margin="0,0,0,0"
+                                                             FontFamily="{StaticResource Font.Roboto}"
+                                                             FontSize="14"
+                                                             Foreground="{StaticResource Brush.Foreground.Color1}"
+                                                             HighlightWords="{Binding DataContext.SearchParts, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                             Text="{Binding Name}" />
+                                <controls:HighlightTextBlock Margin="6,0,0,0"
+                                                             VerticalAlignment="Center"
+                                                             FontFamily="{StaticResource Font.Roboto}"
+                                                             FontSize="11"
+                                                             Foreground="{StaticResource Brush.Foreground.Color2}"
+                                                             Text="{Binding EventCount, StringFormat=(Событий: {0})}" />
+                            </DockPanel>
+                            <TextBlock Margin="0,3,0,0"
+                                       FontFamily="{StaticResource Font.RobotoMedium}"
+                                       FontSize="12"
+                                       Foreground="{StaticResource Brush.Foreground.Color2}">
+                                <Run Text="{Binding StartBetsDate, StringFormat=dd.MM.yyyy\, HH:\mm}" />
+                                <Run Text="   -   " />
+                                <Run Text="{Binding EndBetsDate, StringFormat=dd.MM.yyyy\, HH:\mm}" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

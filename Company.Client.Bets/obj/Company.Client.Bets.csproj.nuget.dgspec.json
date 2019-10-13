@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Bets\\Company.Client.Bets.csproj": {}
+  },
+  "projects": {
+    "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Bets\\Company.Client.Bets.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Bets\\Company.Client.Bets.csproj",
+        "projectName": "Company.Client.Bets",
+        "projectPath": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Bets\\Company.Client.Bets.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Bets\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net471"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net471": {
+            "projectReferences": {
+              "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Themes\\Company.Client.Themes.csproj": {
+                "projectPath": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Themes\\Company.Client.Themes.csproj"
+              },
+              "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\External.Types.csproj": {
+                "projectPath": "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\External.Types.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net471": {
+          "dependencies": {
+            "Automatonymous": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "Expression.Blend.Sdk": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[7.6.103, )"
+            },
+            "Fody": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[11.0.2, )"
+            },
+            "Prism.Core": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[2.5.9, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Themes\\Company.Client.Themes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Themes\\Company.Client.Themes.csproj",
+        "projectName": "Company.Client.Themes",
+        "projectPath": "D:\\.programming\\.Repository BaltBet\\BETS\\Company.Client.Themes\\Company.Client.Themes.csproj"
+      },
+      "frameworks": {
+        "net462": {}
+      }
+    },
+    "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\External.Types.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\External.Types.csproj",
+        "projectName": "External.Types",
+        "projectPath": "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\External.Types.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\.programming\\.Repository BaltBet\\BETS\\External.Types\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net471"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net471": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net471": {}
+      }
+    }
+  }
+}

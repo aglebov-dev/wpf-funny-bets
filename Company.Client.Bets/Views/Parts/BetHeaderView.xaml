@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.Parts.BetHeaderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:parts="clr-namespace:Company.Client.Bets.Views.Parts"
+             d:DesignHeight="150"
+             d:DesignWidth="800"
+             SnapsToDevicePixels="True"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UniformGrid Margin="0"
+                 Columns="3">
+        <parts:AccountView Margin="0,0,10,0"
+                           DataContext="{Binding Account}" />
+        <Border Margin="10,0"
+                Padding="15,9"
+                Background="{StaticResource Brush.ItemBackgroundFirst}"
+                BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                BorderThickness="1"
+                CornerRadius="3">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Top"
+                           FontFamily="{StaticResource Font.RobotoLight}"
+                           FontSize="18"
+                           Foreground="{StaticResource Brush.Foreground.Color1}"
+                           Text="Сумма ставки" />
+                <TextBox Grid.Row="1"
+                         Margin="0,0,3,0"
+                         VerticalAlignment="Center"
+                         FontFamily="{StaticResource Font.Roboto}"
+                         FontSize="16"
+                         Foreground="{StaticResource Brush.Color6}"
+                         Style="{StaticResource Style.TextBox.WaterToolTip}"
+                         Text="{Binding Bet.TotalBetAmount, UpdateSourceTrigger=PropertyChanged}"
+                         ToolTip="сумма" />
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           FontFamily="{StaticResource Font.RobotoMedium}"
+                           Foreground="{StaticResource Brush.Foreground.Color2}"
+                           Text="Возможный выигрыш" />
+            </Grid>
+        </Border>
+        <Border Margin="10,0,0,0"
+                Padding="15,9"
+                Background="{StaticResource Brush.ItemBackgroundFirst}"
+                BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                BorderThickness="1"
+                CornerRadius="3">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Top"
+                           FontFamily="{StaticResource Font.RobotoLight}"
+                           FontSize="18"
+                           Foreground="{StaticResource Brush.Foreground.Color1}"
+                           Text="Тип ставки" />
+
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+
+                    <!--
+                        Command="{Binding DataContext.SwitchToExpressCommand, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                        CommandParameter="{Binding}"
+                    -->
+                    <Button HorizontalContentAlignment="Left"
+                            Content="ОДИНОЧНАЯ / ЭКСПРЕСС"
+                            FontFamily="{StaticResource Font.RobotoMedium}"
+                            IsEnabled="False"
+                            Style="{StaticResource Style.Button.Link}" />
+                    <Button HorizontalContentAlignment="Left"
+                            Content="СИСТЕМА"
+                            FontFamily="{StaticResource Font.RobotoMedium}"
+                            IsEnabled="False"
+                            Style="{StaticResource Style.Button.Link}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </UniformGrid>
+
+</UserControl>

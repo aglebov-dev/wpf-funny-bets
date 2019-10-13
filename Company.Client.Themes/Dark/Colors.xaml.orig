@@ -1,0 +1,117 @@
+<<<<<<< HEAD
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+=======
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>>>>>>> origin/feature/Client.Wpf.Themes
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:presentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <Color x:Key="Color.BackgroundFirst">#ff252b33</Color>
+    <SolidColorBrush x:Key="Brush.BackgroundFirst"
+                     presentationOptions:Freeze="True"
+                     Color="{StaticResource Color.BackgroundFirst}" />
+
+    <Color x:Key="BackgroundSecond">#ff1d2228</Color>
+    <SolidColorBrush x:Key="Brush.BackgroundSecond"
+                     presentationOptions:Freeze="True"
+                     Color="{StaticResource BackgroundSecond}" />
+
+    <Color x:Key="BackgroundThird">#FF2E3540</Color>
+    <SolidColorBrush x:Key="Brush.BackgroundThird"
+                     presentationOptions:Freeze="True"
+                     Color="{StaticResource BackgroundThird}" />
+
+
+    <Color x:Key="ItemBackgroundFirst">#FF202730</Color>
+    <SolidColorBrush x:Key="Brush.ItemBackgroundFirst"
+                     presentationOptions:Freeze="True"
+                     Color="{StaticResource ItemBackgroundFirst}" />
+
+    <Color x:Key="ItemBackgroundSecond">#ff353e47</Color>
+    <SolidColorBrush x:Key="Brush.ItemBackgroundSecond"
+                     presentationOptions:Freeze="True"
+                     Color="{StaticResource ItemBackgroundSecond}" />
+
+    <Color x:Key="ItemBackgroundThird">#FF29313C</Color>
+    <SolidColorBrush x:Key="Brush.ItemBackgroundThird"
+                     presentationOptions:Freeze="True"
+                     Color="{DynamicResource ItemBackgroundThird}" />
+
+
+    <SolidColorBrush x:Key="ScrollThumbCollor"
+                     presentationOptions:Freeze="True"
+                     Color="White" />
+
+    <SolidColorBrush x:Key="Brush.Color0"
+                     presentationOptions:Freeze="True"
+                     Color="#ff2d343e" />
+
+
+    <!--  style colors  -->
+    <SolidColorBrush x:Key="Brush.Color4"
+                     presentationOptions:Freeze="True"
+                     Color="#ff159ce1" />
+    <SolidColorBrush x:Key="Brush.Blue1"
+                     presentationOptions:Freeze="True"
+                     Color="#1B4288" />
+
+    <SolidColorBrush x:Key="Brush.Color6"
+                     presentationOptions:Freeze="True"
+                     Color="#FF4AB14F" />
+    <SolidColorBrush x:Key="Brush.Color6.5"
+                     presentationOptions:Freeze="True"
+                     Color="#ff58b95c" />
+    <SolidColorBrush x:Key="Brush.Color6.7"
+                     presentationOptions:Freeze="True"
+                     Color="#6BFC6B" />
+    <SolidColorBrush x:Key="Brush.Color7"
+                     presentationOptions:Freeze="True"
+                     Color="#FF293239" />
+
+    <SolidColorBrush x:Key="Brush.Error"
+                     presentationOptions:Freeze="True"
+                     Color="Red" />
+    <SolidColorBrush x:Key="Brush.Warning"
+                     presentationOptions:Freeze="True"
+                     Color="DarkRed" />
+    <SolidColorBrush x:Key="Brush.Attention"
+                     presentationOptions:Freeze="True"
+                     Color="#F77E93" />
+
+    <SolidColorBrush x:Key="Brush.ItemBackgroundSecond3"
+                     presentationOptions:Freeze="True"
+                     Color="Black" />
+
+    <!--  busy colors  -->
+    <SolidColorBrush x:Key="Brush.BusyFirst"
+                     presentationOptions:Freeze="True"
+                     Color="Orange" />
+    <SolidColorBrush x:Key="Brush.BusySecond"
+                     presentationOptions:Freeze="True"
+                     Color="#456AAB" />
+
+    <!--  foregrounds !!!  -->
+    <SolidColorBrush x:Key="Brush.Foreground.Color1"
+                     presentationOptions:Freeze="True"
+                     Color="#ffdfe0e1" />
+
+    <SolidColorBrush x:Key="Brush.Foreground.Color2"
+                     presentationOptions:Freeze="True"
+                     Color="#ff989fa7" />
+
+    <SolidColorBrush x:Key="Brush.Foreground.Color3"
+                     presentationOptions:Freeze="True"
+                     Color="#ff5a626c" />
+    <SolidColorBrush x:Key="Brush.Foreground.Color4"
+                     presentationOptions:Freeze="True"
+                     Color="white" />
+
+    <SolidColorBrush x:Key="Brush.Foreground.Color.BackgroundFirst"
+                     presentationOptions:Freeze="True"
+                     Color="#ffa6aab2" />
+
+
+    <SolidColorBrush x:Key="TEST"
+                     presentationOptions:Freeze="True"
+                     Color="#FF252B34" />
+</ResourceDictionary>

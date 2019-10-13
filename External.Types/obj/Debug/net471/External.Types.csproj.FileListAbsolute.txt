@@ -1,0 +1,7 @@
+D:\.programming\.Repository BaltBet\BETS\External.Types\bin\Debug\net471\External.Types.dll
+D:\.programming\.Repository BaltBet\BETS\External.Types\bin\Debug\net471\External.Types.pdb
+D:\.programming\.Repository BaltBet\BETS\External.Types\obj\Debug\net471\External.Types.csproj.CoreCompileInputs.cache
+D:\.programming\.Repository BaltBet\BETS\External.Types\obj\Debug\net471\External.Types.AssemblyInfoInputs.cache
+D:\.programming\.Repository BaltBet\BETS\External.Types\obj\Debug\net471\External.Types.AssemblyInfo.cs
+D:\.programming\.Repository BaltBet\BETS\External.Types\obj\Debug\net471\External.Types.dll
+D:\.programming\.Repository BaltBet\BETS\External.Types\obj\Debug\net471\External.Types.pdb

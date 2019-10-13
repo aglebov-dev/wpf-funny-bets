@@ -1,0 +1,20 @@
+﻿Company.Client.Bets
+
+
+winexe
+C#
+.cs
+D:\.programming\.Repository BaltBet\BETS\Company.Client.Bets\obj\Debug\net471\
+Company.Client.Bets
+none
+false
+TRACE;DEBUG;NETFRAMEWORK;NET471
+D:\.programming\.Repository BaltBet\BETS\Company.Client.Bets\App.xaml
+20-1250405826
+
+10181390107
+132567469400
+Resources\Styles\Image.xaml;Resources\Styles\ScrollViewer.xaml;Views\BetEditorView.xaml;Views\BetView.xaml;Views\Common\AskView.xaml;Views\EventsView.xaml;Views\MadeBetsView.xaml;Views\MadeBetView.xaml;Views\MainView.xaml;Views\Parts\AccountView.xaml;Views\Parts\BetEventsGrid.xaml;Views\Parts\BetFooterView.xaml;Views\Parts\BetHeaderView.xaml;Views\Parts\MadeBetFooterView.xaml;Views\Parts\MadeBetGridView.xaml;Views\Parts\MadeBetHeaderView.xaml;Views\Parts\MadeBetInfoView.xaml;Views\Parts\SuperexpressEventGrid.xaml;Views\SuperexpressBetView.xaml;Views\SuperexpressDrawsView.xaml;
+
+False
+

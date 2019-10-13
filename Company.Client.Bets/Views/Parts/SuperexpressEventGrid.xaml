@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.Parts.SuperexpressEventGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:support="clr-namespace:Company.Wpf.Core"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:xaml="clr-namespace:Company.Wpf.Core.XAML"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="Style.DataGrid.ColumnHeader.EventGrid"
+                   BasedOn="{StaticResource Style.DataGridColumn.Default}"
+                   TargetType="DataGridColumnHeader">
+                <Setter Property="Height" Value="auto" />
+                <Setter Property="FontFamily" Value="{StaticResource Font.OpenSansSemibold}" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Padding" Value="20,6" />
+                <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundThird}" />
+            </Style>
+            <Style x:Key="Style.DataGrid.Row.EventGrid"
+                   BasedOn="{StaticResource Style.DataGridRow.Light}"
+                   TargetType="DataGridRow">
+                <Setter Property="MinHeight" Value="0" />
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+            <xaml:BindingProxy x:Key="DataContextProxy"
+                          Data="{Binding}" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DataGrid CanUserResizeColumns="False"
+              ColumnHeaderStyle="{StaticResource Style.DataGrid.ColumnHeader.EventGrid}"
+              EnableColumnVirtualization="True"
+              FrozenColumnCount="2"
+              HorizontalGridLinesBrush="{StaticResource Brush.ItemBackgroundSecond}"
+              ItemsSource="{Binding Events}"
+              RowStyle="{StaticResource Style.DataGrid.Row.EventGrid}"
+              Style="{StaticResource Style.DataGrid.Default.InnerScroll}"
+              VerticalGridLinesBrush="{StaticResource Brush.ItemBackgroundSecond}"
+              VirtualizingPanel.IsContainerVirtualizable="True"
+              VirtualizingPanel.IsVirtualizing="True"
+              VirtualizingPanel.VirtualizationMode="Recycling">
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Header="ID">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock VerticalAlignment="Center"
+                                   Style="{StaticResource Style.DataGridTextColumn.Default}"
+                                   Text="{Binding Id}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn Header="СОБЫТИЕ">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock FontSize="11"
+                                       Style="{StaticResource Style.DataGridTextColumn.GrayText}"
+                                       Text="{Binding Path}" />
+                            <TextBlock Style="{StaticResource Style.DataGridTextColumn.Default}"
+                                       Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+        <i:Interaction.Behaviors>
+            <support:DataGridColumnsBindingBehaviour AttachedColumns="{Binding Headers, IsAsync=True}"
+                                                     RowDataCollectionPath="Coefficients">
+                <support:DataGridMetaItems ColumnStyle="{StaticResource Style.DataGrid.ColumnHeader.EventGrid}"
+                                           DataType="sys:String">
+                    <support:DataGridMetaItems.ColumnTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource Style.DataGridTextColumn.Default}"
+                                       Text="{Binding}"
+                                       TextAlignment="Center"
+                                       TextTrimming="CharacterEllipsis" />
+                        </DataTemplate>
+                    </support:DataGridMetaItems.ColumnTemplate>
+                    <support:DataGridMetaItems.CellStyle>
+                        <Style BasedOn="{StaticResource Style.DataGridCell.Default}"
+                               TargetType="DataGridCell">
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </support:DataGridMetaItems.CellStyle>
+                    <support:DataGridMetaItems.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Data.SelectOutcomeCommand, Source={StaticResource DataContextProxy}}"
+                                    CommandParameter="{Binding}"
+                                    Cursor="Hand">
+                                <Button.Content>
+                                    <Path Height="14"
+                                          Data="{StaticResource Drawing.Geometry.Check}"
+                                          Style="{StaticResource Style.Path.ForegroundFill}" />
+                                </Button.Content>
+                                <Button.Style>
+                                    <Style BasedOn="{StaticResource Style.Button.Link}"
+                                           TargetType="Button">
+                                        <Setter Property="Foreground" Value="{StaticResource Brush.BackgroundThird}" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsSelected}"
+                                                         Value="True">
+                                                <Setter Property="Foreground" Value="{StaticResource Brush.Color6.5}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </support:DataGridMetaItems.CellTemplate>
+                </support:DataGridMetaItems>
+            </support:DataGridColumnsBindingBehaviour>
+        </i:Interaction.Behaviors>
+    </DataGrid>
+</UserControl>

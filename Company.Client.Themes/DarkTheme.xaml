@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Company.Client.Themes;component/Fonts/Fonts.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Drawing/Geometry/GeometryGroups.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Drawing/Geometry/DomainKind.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Drawing/Geometry/Images.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Colors.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/ScrollViewer.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/ListBox.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Button.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Path.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/TextBox.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/ComboBox.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/CheckBox.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/ToggleButton.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/TreeView.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/DataGrid.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Line.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/TextBlock.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/TabControl.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/DatePicker.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Slider.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

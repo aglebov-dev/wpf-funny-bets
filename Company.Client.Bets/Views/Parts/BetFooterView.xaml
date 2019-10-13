@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.Parts.BetFooterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Height="37"
+              Background="{StaticResource Brush.ItemBackgroundSecond}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Padding="36,0"
+                    Command="{Binding SaleBetCommand}"
+                    CommandParameter="{Binding DataContext.Bet, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                    FontFamily="{StaticResource Font.RobotoMedium}"
+                    Style="{StaticResource Style.Button.Default}">
+                <TextBlock Text="ОБРАБОТАТЬ" />
+            </Button>
+            <DockPanel HorizontalAlignment="Center">
+                <Button Padding="12,3"
+                        Command="{Binding CancelBetCommand}"
+                        CommandParameter="{Binding DataContext.Bet, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                        FontFamily="{StaticResource Font.RobotoMedium}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <TextBlock Text="АННУЛИРОВАТЬ" />
+                </Button>
+                <Button Padding="12,3"
+                        Command="{Binding PrintCommand}"
+                        CommandParameter="{Binding DataContext.Bet, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                        FontFamily="{StaticResource Font.RobotoMedium}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <TextBlock Text="ПЕЧАТЬ БИЛЕТА" />
+                </Button>
+                <Button Padding="12,3"
+                        Command="{Binding DetailsPrintCommand}"
+                        CommandParameter="{Binding DataContext.Bet, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                        FontFamily="{StaticResource Font.RobotoMedium}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <TextBlock Text="ПОДРОБНАЯ ПЕЧАТЬ" />
+                </Button>
+                <Button Padding="12,3"
+                        Command="{Binding DataContext.RemoveBetCommand, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=3, Mode=FindAncestor}}"
+                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=2, Mode=FindAncestor}}"
+                        FontFamily="{StaticResource Font.RobotoMedium}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <TextBlock Text="ЗАКРЫТЬ" />
+                </Button>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>

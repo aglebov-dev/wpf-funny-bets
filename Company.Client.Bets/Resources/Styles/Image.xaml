@@ -1,0 +1,234 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Resources/DomainKind.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <Style x:Key="DomainKind.ImageSelector"
+           TargetType="Image">
+        <Setter Property="Height" Value="18" />
+        <Setter Property="ToolTipService.IsEnabled" Value="False" />
+        <Setter Property="ToolTip" Value="Иные виды спорта" />
+        <Setter Property="Source" Value="{StaticResource DomainKind.Unknown}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="AustralianFootball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.AustralianFootball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="MotorSports">
+                <Setter Property="Source" Value="{StaticResource DomainKind.MotorSports}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="AmericanFootball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.AmericanFootball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Badminton">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Badminton}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Basketball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Basketball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Baseball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Baseball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Biathlon">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Biathlon}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Billiard">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Billiard}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="BoxingAndWrestling">
+                <Setter Property="Source" Value="{StaticResource DomainKind.BoxingAndWrestling}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="CycleSport">
+                <Setter Property="Source" Value="{StaticResource DomainKind.CycleSport}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="WaterPolo">
+                <Setter Property="Source" Value="{StaticResource DomainKind.WaterPolo}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="WaterSports">
+                <Setter Property="Source" Value="{StaticResource DomainKind.WaterSports}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Volleyball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Volleyball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Handball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Handball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Golf">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Golf}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="AlpineSkiing">
+                <Setter Property="Source" Value="{StaticResource DomainKind.AlpineSkiing}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Darts">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Darts}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="EuropeanGames">
+                <Setter Property="Source" Value="{StaticResource DomainKind.EuropeanGames}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Curling">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Curling}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Cybersport">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Cybersport}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Cricket">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Cricket}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Culture">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Culture}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Athletics">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Athletics}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Lottery">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Lottery}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Skiing">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Skiing}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="OlympicGames">
+                <Setter Property="Height" Value="14" />
+                <Setter Property="Source" Value="{StaticResource DomainKind.OlympicGames}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="BeachVolleyball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.BeachVolleyball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="BeachHandball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.BeachHandball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="BeachFootball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.BeachFootball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Poker">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Poker}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Politics">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Politics}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Rugby">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Rugby}" />
+                <Setter Property="ToolTip" Value="Регби" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Rugby7">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Rugby7}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="RugbyUnion">
+                <Setter Property="Source" Value="{StaticResource DomainKind.RugbyUnion}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Squash">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Squash}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="MMA">
+                <Setter Property="Source" Value="{StaticResource DomainKind.MMA}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Snooker">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Snooker}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="SpecialEvents">
+                <Setter Property="Source" Value="{StaticResource DomainKind.SpecialEvents}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="TankBiathlon">
+                <Setter Property="Source" Value="{StaticResource DomainKind.TankBiathlon}" />
+                <Setter Property="Height" Value="16" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Tennis">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Tennis}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="TableTennis">
+                <Setter Property="Source" Value="{StaticResource DomainKind.TableTennis}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="SkiJumping">
+                <Setter Property="Source" Value="{StaticResource DomainKind.SkiJumping}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Universiade">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Universiade}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="FigureSkating">
+                <Setter Property="Source" Value="{StaticResource DomainKind.FigureSkating}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Floorball">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Floorball}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Formula1">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Formula1}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Football">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Football}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Futsal">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Futsal}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="IceHockey">
+                <Setter Property="Source" Value="{StaticResource DomainKind.IceHockey}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="FieldHockey">
+                <Setter Property="Source" Value="{StaticResource DomainKind.FieldHockey}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Bandy">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Bandy}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Bowls">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Bowls}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}"
+                         Value="Chess">
+                <Setter Property="Source" Value="{StaticResource DomainKind.Chess}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

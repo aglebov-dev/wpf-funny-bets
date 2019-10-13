@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.MadeBetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:design="clr-namespace:Company.Client.Bets.Design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:parts="clr-namespace:Company.Client.Bets.Views.Parts"
+             d:DataContext="{d:DesignInstance design:MadeBetDesign,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="800"
+             d:DesignWidth="1200"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="350" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Margin="9,9,0,9"
+                   VerticalAlignment="Top">
+            <parts:MadeBetHeaderView DockPanel.Dock="Top" />
+            <parts:MadeBetFooterView DockPanel.Dock="Bottom" />
+            <parts:MadeBetGridView DockPanel.Dock="Top" />
+        </DockPanel>
+        <parts:MadeBetInfoView Grid.Column="1"
+                               Margin="9" />
+    </Grid>
+</UserControl>

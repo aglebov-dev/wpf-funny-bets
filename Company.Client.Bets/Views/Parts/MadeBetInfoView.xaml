@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.Parts.MadeBetInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:design="clr-namespace:Company.Client.Bets.Design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Company.Client.Bets.Models"
+             d:DataContext="{d:DesignInstance design:MadeBetDesign,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="800"
+             d:DesignWidth="350"
+             SnapsToDevicePixels="True"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Thickness x:Key="Margin.Info">0,0,0,12</Thickness>
+            <Thickness x:Key="Margin.Block">0,12,12,0</Thickness>
+            <Style x:Key="ValueText"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource Brush.Foreground.Color1}" />
+                <Setter Property="TextAlignment" Value="Right" />
+                <Setter Property="Margin" Value="6,0,0,0" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+            <Style x:Key="Style.FrameworkElement.Payment"
+                   TargetType="FrameworkElement">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding BetInfo.BetResultState}"
+                                 Value="{x:Static models:BetResultState.Win}">
+                        <Setter Property="Visibility" Value="Visible" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                  Style="{StaticResource Style.ScrollViewer.Basic}">
+        <DockPanel Grid.Column="1"
+                   TextBlock.FontFamily="{StaticResource Font.Roboto}"
+                   TextElement.FontSize="13"
+                   TextElement.Foreground="{StaticResource Brush.Foreground.Color2}">
+            <Border Padding="16,16,0,0"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    BorderThickness="0,0,0,1"
+                    DockPanel.Dock="Top">
+                <TextBlock Margin="0,0,0,16"
+                           FontFamily="{StaticResource Font.RobotoMedium}"
+                           FontSize="20"
+                           Text="ПОДРОБНОСТИ" />
+            </Border>
+
+            <Border Width="15"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    DockPanel.Dock="Left" />
+            <Border Padding="{StaticResource Margin.Block}"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    DockPanel.Dock="Top">
+                <StackPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <Image Height="48">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Source" Value="{StaticResource Image.Man}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding BetInfo.AccountInfo.IsWoman}"
+                                                     Value="True">
+                                            <Setter Property="Source" Value="{StaticResource Image.Woman}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <TextBlock Margin="18,0,0,0"
+                                   VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Foreground="{StaticResource Brush.Foreground.Color1}"
+                                   Text="{Binding BetInfo.AccountInfo.Name}"
+                                   TextWrapping="Wrap" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="НОМЕР СТАВКИ" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.BetID}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="ДАТА И ВРЕМЯ" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.BetDate, StringFormat=dd.MM.yy в HH\\:mm}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="МЕСТО" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.BetPointName}" />
+                    </DockPanel>
+
+                </StackPanel>
+            </Border>
+            <Border Padding="{StaticResource Margin.Block}"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    BorderThickness="0,1,0,0"
+                    DockPanel.Dock="Top">
+                <StackPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock VerticalAlignment="Bottom"
+                                   Text="СУММА СТАВКИ" />
+                        <TextBlock FontFamily="{StaticResource Font.RobotoBlack}"
+                                   FontSize="15"
+                                   Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.BetAmount, StringFormat=\{0:C0\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="ТИП РАСЧЕТА" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.PaymentType}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="ОБЩ. КОЭФФИЦИЕНТ" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.TotalCoefficient, StringFormat=\{0:N2\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="ВОЗМОЖНЫЙ ВЫИГРЫШ" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.MightWinSum, StringFormat=\{0:C0\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock Text="БОНУС" />
+                        <TextBlock Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.BonusAmount, StringFormat=\{0:N0\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock VerticalAlignment="Bottom"
+                                   Text="СТАТУС СТАВКИ" />
+                        <TextBlock>
+                            <TextBlock.Style>
+                                <Style BasedOn="{StaticResource ValueText}"
+                                       TargetType="TextBlock">
+                                    <Setter Property="FontSize" Value="15" />
+                                    <Setter Property="FontFamily" Value="{StaticResource Font.RobotoBlack}" />
+                                    <Setter Property="Text" Value="Розыгрывается" />
+                                    <Setter Property="Foreground" Value="{StaticResource Brush.Foreground.Color2}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding BetInfo.BetResultState}"
+                                                     Value="{x:Static models:BetResultState.Win}">
+                                            <Setter Property="Text" Value="Выиграла" />
+                                            <Setter Property="Foreground" Value="{StaticResource Brush.Color6}" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding BetInfo.BetResultState}"
+                                                     Value="{x:Static models:BetResultState.Lose}">
+                                            <Setter Property="Text" Value="Проиграла" />
+                                            <Setter Property="Foreground" Value="{StaticResource Brush.Attention}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Border Padding="{StaticResource Margin.Block}"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    BorderThickness="0,1,0,0"
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource Style.FrameworkElement.Payment}">
+                <StackPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <TextBlock VerticalAlignment="Bottom"
+                                   Text="К ВЫДАЧЕ" />
+
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <RadioButton VerticalAlignment="Center"
+                                     Content="ВЕСЬ ВЫИГРЫШ" />
+                        <TextBlock VerticalAlignment="Center"
+                                   Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.PayoutAmount, StringFormat=\{0:C0\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <RadioButton VerticalAlignment="Center"
+                                     Content="ЧАСТИЧНАЯ ВЫПЛАТА" />
+                        <TextBox Margin="6,0,0,0"
+                                 VerticalAlignment="Center"
+                                 Style="{StaticResource Style.TextBox.WaterHiddenToolTip}"
+                                 ToolTip="сумма" />
+                    </DockPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <Border Width="20"
+                                Height="20"
+                                Margin="0,0,12,0"
+                                Padding="2,1,1,1"
+                                Background="{StaticResource Brush.ItemBackgroundThird}"
+                                CornerRadius="16">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Text="₽" />
+                        </Border>
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="ОСТАТОК" />
+                        <TextBlock VerticalAlignment="Center"
+                                   Style="{StaticResource ValueText}"
+                                   Text="{Binding BetInfo.TotalCoefficient, StringFormat=\{0:C0\}, ConverterCulture=ru}" />
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Border Padding="{StaticResource Margin.Block}"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    BorderThickness="0,1,0,0"
+                    DockPanel.Dock="Top"
+                    Style="{StaticResource Style.FrameworkElement.Payment}">
+                <StackPanel>
+                    <DockPanel Margin="{StaticResource Margin.Info}">
+                        <Border Width="20"
+                                Height="20"
+                                Margin="0,0,12,0"
+                                Padding="1"
+                                Background="{StaticResource Brush.ItemBackgroundThird}"
+                                CornerRadius="10">
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="{StaticResource Font.RobotoBlack}"
+                                       Text="i" />
+                        </Border>
+                        <TextBlock VerticalAlignment="Center"
+                                   FontFamily="{StaticResource Font.RobotoThin}"
+                                   FontSize="11"
+                                   Foreground="{StaticResource Brush.Foreground.Color1}"
+                                   Text="Введите последние 3 цифры номера" />
+                    </DockPanel>
+
+                    <TextBox VerticalAlignment="Center"
+                             Style="{StaticResource Style.TextBox.WaterHiddenToolTip}" />
+                    <Button Margin="0,12"
+                            Content="ВЫДАТЬ"
+                            Style="{StaticResource Style.Button.Default}" />
+                </StackPanel>
+            </Border>
+            <Border x:Name="tailBorder"
+                    Background="{StaticResource Brush.ItemBackgroundSecond}"
+                    DockPanel.Dock="Top" />
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>

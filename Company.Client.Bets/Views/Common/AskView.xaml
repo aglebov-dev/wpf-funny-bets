@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.AskView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             Background="#3B000000"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border MinWidth="400"
+            MinHeight="150"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Black"
+            BorderBrush="{StaticResource Brush.BusySecond}"
+            BorderThickness="2"
+            SnapsToDevicePixels="True">
+        <Grid Background="{StaticResource Brush.ItemBackgroundThird}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Border Background="{StaticResource Brush.BusySecond}">
+                <TextBlock Margin="12,3"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource Font.Roboto}"
+                           FontSize="12"
+                           Foreground="{StaticResource Brush.Foreground.Color1}"
+                           Text="{Binding Title}" />
+            </Border>
+            <TextBlock Grid.Row="1"
+                       Margin="12"
+                       VerticalAlignment="Center"
+                       FontFamily="{StaticResource Font.RobotoMedium}"
+                       FontSize="14"
+                       Foreground="{StaticResource Brush.Foreground.Color1}"
+                       Text="{Binding Message}" />
+            <StackPanel Grid.Row="2"
+                        Margin="9"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                <Button Margin="0,0,6,0"
+                        Padding="12,0"
+                        Command="{Binding CancelCommand}"
+                        Content="ОТМЕНА"
+                        FontFamily="{StaticResource Font.Roboto}"
+                        Style="{StaticResource Style.Button.Link}" />
+                <Button Margin="6,0,0,0"
+                        Command="{Binding ApplyCommand}"
+                        Content="ДА"
+                        FontFamily="{StaticResource Font.Roboto}"
+                        Style="{StaticResource Style.Button.Default}" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

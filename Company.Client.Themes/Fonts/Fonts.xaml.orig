@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+=======
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+>>>>>>> origin/feature/Client.Wpf.Themes
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:media="clr-namespace:System.Windows.Media;assembly=PresentationCore">
+    <media:FontFamily x:Key="Font.OpenSans">/BaltBet.Client.Themes;component/Fonts/#Open Sans</media:FontFamily>
+    <media:FontFamily x:Key="Font.OpenSansExtrabold">/BaltBet.Client.Themes;component/Fonts/#Open Sans Extrabold</media:FontFamily>
+    <media:FontFamily x:Key="Font.OpenSansSemibold">/BaltBet.Client.Themes;component/Fonts/#Open Sans Semibold</media:FontFamily>
+    <media:FontFamily x:Key="Font.OpenSansLight">/BaltBet.Client.Themes;component/Fonts/#Open Sans Light</media:FontFamily>
+
+
+<<<<<<< HEAD
+    <media:FontFamily x:Key="Font.Roboto">/BaltBet.Client.Themes;component/Fonts/#Roboto</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoBlack">/BaltBet.Client.Themes;component/Fonts/#Roboto Black</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoLight">/BaltBet.Client.Themes;component/Fonts/#Roboto Light</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoMedium">/BaltBet.Client.Themes;component/Fonts/#Roboto Medium</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoThin">/BaltBet.Client.Themes;component/Fonts/#Roboto Thin</media:FontFamily>
+
+
+    <!--<media:FontFamily x:Key="Font.RobotoBold">/BaltBet.Client.Themes;component/Fonts/#Roboto Bold</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto Italic</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoBlackItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto BlackItalic</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoBoldItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto BoldItalic</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoLightItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto LightItalic</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoMediumItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto MediumItalic</media:FontFamily>
+    <media:FontFamily x:Key="Font.RobotoThinItalic">/BaltBet.Client.Themes;component/Fonts/#Roboto ThinItalic</media:FontFamily>-->
+=======
+>>>>>>> origin/feature/Client.Wpf.Themes
+</ResourceDictionary>

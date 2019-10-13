@@ -1,0 +1,495 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.EventsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Company.Wpf.Core"
+             xmlns:converters="clr-namespace:Company.Client.Bets.Desktop.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:design="clr-namespace:Company.Client.Bets.Design"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:Company.Client.Bets.Models"
+             d:DataContext="{d:DesignInstance design:EventsDesign,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="450"
+             d:DesignWidth="350"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:DomainKindConverter x:Key="DomainKindConverter" />
+            <DataTemplate DataType="{x:Type models:DomainKind}">
+                <Image x:Name="icon"
+                       Height="18"
+                       Source="{StaticResource DomainKind.Unknown}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="AustralianFootball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.AustralianFootball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="MotorSports">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.MotorSports}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="AmericanFootball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.AmericanFootball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Badminton">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Badminton}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Basketball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Basketball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Baseball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Baseball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Biathlon">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Biathlon}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Billiard">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Billiard}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="BoxingAndWrestling">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.BoxingAndWrestling}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="CycleSport">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.CycleSport}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="WaterPolo">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.WaterPolo}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="WaterSports">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.WaterSports}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Volleyball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Volleyball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Handball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Handball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Golf">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Golf}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="AlpineSkiing">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.AlpineSkiing}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Darts">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Darts}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="EuropeanGames">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.EuropeanGames}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Curling">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Curling}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Cybersport">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Cybersport}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Cricket">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Cricket}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Culture">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Culture}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Athletics">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Athletics}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Lottery">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Lottery}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Skiing">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Skiing}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="OlympicGames">
+                        <Setter TargetName="icon" Property="Height" Value="14" />
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.OlympicGames}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="BeachVolleyball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.BeachVolleyball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="BeachHandball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.BeachHandball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="BeachFootball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.BeachFootball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Poker">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Poker}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Politics">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Politics}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Rugby">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Rugby}" />
+                        <Setter Property="ToolTip" Value="Регби" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Rugby7">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Rugby7}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="RugbyUnion">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.RugbyUnion}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Squash">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Squash}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="MMA">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.MMA}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Snooker">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Snooker}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="SpecialEvents">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.SpecialEvents}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="TankBiathlon">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.TankBiathlon}" />
+                        <Setter TargetName="icon" Property="Height" Value="16" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Tennis">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Tennis}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="TableTennis">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.TableTennis}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="SkiJumping">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.SkiJumping}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Universiade">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Universiade}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="FigureSkating">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.FigureSkating}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Floorball">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Floorball}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Formula1">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Formula1}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Football">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Football}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Futsal">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Futsal}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="IceHockey">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.IceHockey}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="FieldHockey">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.FieldHockey}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Bandy">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Bandy}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Bowls">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Bowls}" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding}"
+                                 Value="Chess">
+                        <Setter TargetName="icon" Property="Source" Value="{StaticResource DomainKind.Chess}" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="ListBox.Item.Template">
+                <Button x:Name="button"
+                        Padding="9,5,0,5"
+                        Command="{Binding DataContext.SelectEventCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                        CommandParameter="{Binding}"
+                        Style="{StaticResource Style.Button.Transparent}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <DockPanel>
+                            <controls:HighlightTextBlock Margin="0,0,9,0"
+                                                         VerticalAlignment="Center"
+                                                         BackgroundHighlight="{StaticResource Brush.Color6.7}"
+                                                         FontFamily="{StaticResource Font.RobotoMedium}"
+                                                         FontSize="12"
+                                                         Foreground="{StaticResource Brush.Color6.5}"
+                                                         ForegroundHighlight="{StaticResource Brush.Color0}"
+                                                         HighlightWords="{Binding DataContext.SearchParts, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                         Text="{Binding Number}" />
+                            <controls:HighlightTextBlock Margin="0,0,0,0"
+                                                         VerticalAlignment="Center"
+                                                         BackgroundHighlight="{StaticResource Brush.Color6.7}"
+                                                         FontFamily="{StaticResource Font.Roboto}"
+                                                         FontSize="14"
+                                                         Foreground="{StaticResource Brush.Foreground.Color1}"
+                                                         ForegroundHighlight="{StaticResource Brush.Color0}"
+                                                         HighlightWords="{Binding DataContext.SearchParts, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                         Text="{Binding Name}" />
+                        </DockPanel>
+                        <TextBlock Grid.Row="1"
+                                   Margin="0,3,0,0"
+                                   FontFamily="{StaticResource Font.RobotoMedium}"
+                                   FontSize="12"
+                                   Foreground="{StaticResource Brush.Foreground.Color2}"
+                                   Text="{Binding StartTime, StringFormat=dd.MM.yyyy\, HH:\mm}" />
+                        <Path x:Name="include_icon"
+                              Grid.RowSpan="2"
+                              Grid.Column="1"
+                              Height="12"
+                              Margin="6,0,12,0"
+                              HorizontalAlignment="Left"
+                              Data="{StaticResource Drawing.Geometry.Check}"
+                              Fill="{StaticResource Brush.Color6.7}"
+                              Stretch="Uniform" />
+                    </Grid>
+                </Button>
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding IsIncludedInBet}"
+                                 Value="False">
+                        <Setter TargetName="include_icon" Property="Visibility" Value="Collapsed" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="2"
+                Padding="12,6,6,6">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         Margin="0,9,0,0"
+                         Padding="9,3"
+                         Background="{StaticResource Brush.BackgroundThird}"
+                         Style="{StaticResource Style.TextBox.WaterHiddenToolTip.RightAngles}"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Delay=300}"
+                         TextWrapping="NoWrap"
+                         ToolTip="поиск событий" />
+                <Button Command="{Binding DataContext.CreateExpressBetCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor, AncestorLevel=2}}"
+                        Style="{StaticResource Style.Button.Link}">
+                    <DockPanel>
+                        <Path Height="10"
+                              Data="{StaticResource Drawing.Geometry.Plus}"
+                              Style="{StaticResource Style.Path.ForegroundFill}" />
+                        <TextBlock Margin="6,0"
+                                   VerticalAlignment="Center"
+                                   FontFamily="{StaticResource Font.RobotoMedium}"
+                                   FontSize="13"
+                                   Text="ДОБАВИТЬ" />
+                    </DockPanel>
+                </Button>
+                <WrapPanel Grid.Column="1"
+                           HorizontalAlignment="Right">
+                    <Button Margin="3,0,3,0"
+                            Command="{Binding ShowLiveEventsCommand}"
+                            Content="LIVE"
+                            FontFamily="{StaticResource Font.RobotoMedium}"
+                            FontSize="12"
+                            Style="{StaticResource Style.Button.Link}">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <ContentPresenter Content="{Binding}" />
+                                    <Rectangle x:Name="underline"
+                                               Height="3"
+                                               HorizontalAlignment="Stretch"
+                                               Fill="{StaticResource Brush.Color6.7}" />
+                                </StackPanel>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.ShowLiveEvents, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                 Value="False">
+                                        <Setter TargetName="underline" Property="Visibility" Value="Hidden" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    <Button Margin="3,0,3,0"
+                            Command="{Binding ShowLineEventsCommand}"
+                            Content="ЛИНИЯ"
+                            FontFamily="{StaticResource Font.RobotoMedium}"
+                            FontSize="12"
+                            Style="{StaticResource Style.Button.Link}">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <ContentPresenter Content="{Binding}" />
+                                    <Rectangle x:Name="underline"
+                                               Height="3"
+                                               HorizontalAlignment="Stretch"
+                                               Fill="{StaticResource Brush.Color6.7}" />
+                                </StackPanel>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.ShowLineEvents, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                                 Value="False">
+                                        <Setter TargetName="underline" Property="Visibility" Value="Hidden" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </WrapPanel>
+            </Grid>
+        </Border>
+        <ListBox Grid.Row="1"
+                 Padding="12,2,12,0"
+                 HorizontalContentAlignment="Center"
+                 BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                 BorderThickness="0,1,1,0"
+                 Focusable="False"
+                 ItemsSource="{Binding DomainKinds}"
+                 Style="{StaticResource Style.ListBox.Transparent.InnerScroll}"
+                 VirtualizingPanel.IsContainerVirtualizable="True"
+                 VirtualizingPanel.VirtualizationMode="Recycling">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="border"
+                            Width="36"
+                            Height="36"
+                            Padding="2"
+                            Background="{StaticResource Brush.ItemBackgroundSecond}"
+                            BorderThickness="0,0,0,1"
+                            CornerRadius="3"
+                            Focusable="False">
+                        <Button Command="{Binding DataContext.ApplyDomainKindCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                CommandParameter="{Binding}"
+                                Content="{Binding DomainKind}"
+                                Focusable="False"
+                                Style="{StaticResource Style.Button.Transparent}" />
+                    </Border>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsSelected}"
+                                     Value="True">
+                            <Setter TargetName="border" Property="Background" Value="White" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Row="1"
+                 Grid.Column="1"
+                 Padding="0,1,0,0"
+                 HorizontalContentAlignment="Stretch"
+                 BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                 BorderThickness="0,1,0,0"
+                 ItemsSource="{Binding Events}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Style="{StaticResource Style.ListBox.Transparent.InnerScroll}">
+            <ListBox.ItemContainerStyle>
+                <Style BasedOn="{StaticResource Style.ListBoxItem.Transparent}"
+                       TargetType="ListBoxItem">
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="BorderThickness" Value="0,1,0,1" />
+                    <Setter Property="BorderBrush" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                    <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundFirst}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentPresenter ClipToBounds="False"
+                                      Content="{Binding}"
+                                      ContentTemplate="{StaticResource ListBox.Item.Template}">
+                        <ContentPresenter.ToolTip>
+                            <ToolTip Margin="0,0,0,0"
+                                     Padding="0"
+                                     HorizontalContentAlignment="Stretch"
+                                     VerticalContentAlignment="Stretch"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     HasDropShadow="True"
+                                     IsHitTestVisible="False"
+                                     TextOptions.TextFormattingMode="Ideal"
+                                     UseLayoutRounding="False">
+                                <Border Padding="0,0,3,0"
+                                        Background="{StaticResource Brush.ItemBackgroundFirst}"
+                                        BorderBrush="{StaticResource Brush.ItemBackgroundSecond}"
+                                        BorderThickness="0,1,1,1">
+                                    <ContentPresenter Content="{Binding}"
+                                                      ContentTemplate="{StaticResource ListBox.Item.Template}" />
+                                </Border>
+                            </ToolTip>
+                        </ContentPresenter.ToolTip>
+                        <i:Interaction.Behaviors>
+                            <controls:ToolTipPlacementBehavior HorizontalPlacement="Left"
+                                                               InvertDirections="True"
+                                                               ToolTipOnDemand="True"
+                                                               VerticalPlacement="Center" />
+                        </i:Interaction.Behaviors>
+                    </ContentPresenter>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

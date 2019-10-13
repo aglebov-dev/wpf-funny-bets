@@ -1,0 +1,145 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:support="clr-namespace:Company.Client.Themes.Support">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Company.Client.Themes;component/Fonts/Fonts.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Colors.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/ToggleButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="Style.TreeViewItem.EventBranch"
+           TargetType="{x:Type TreeViewItem}">
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="MinWidth" Value="360" />
+        <Setter Property="Background" Value="{DynamicResource Brush.ItemBackgroundSecond}" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Foreground.Color.BackgroundFirst}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="{TemplateBinding MinHeight}" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="Bd"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <DockPanel support:TreeViewSupport.LeftOffset="21">
+                                <ToggleButton x:Name="Expander"
+                                              ClickMode="Press"
+                                              Foreground="{DynamicResource Brush.Foreground.Color2}"
+                                              IsChecked="{Binding IsExpanded, UpdateSourceTrigger=PropertyChanged}">
+                                    <ToggleButton.Style>
+                                        <Style BasedOn="{StaticResource Style.ToggleButton.ComboBox}"
+                                               TargetType="ToggleButton">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding EventBranch.HasChilds}"
+                                                             Value="False">
+                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                                <ContentPresenter x:Name="PART_Header"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  ContentSource="Header"
+                                                  DockPanel.Dock="Right"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </DockPanel>
+                        </Border>
+                        <ItemsPresenter x:Name="ItemsHost"
+                                        Grid.Row="1" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="false">
+                            <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter TargetName="Expander" Property="Foreground" Value="{DynamicResource Brush.Color4}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsExpanded}"
+                         Value="True">
+                <Setter Property="IsExpanded" Value="True" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding EventBranch.HasChilds}"
+                         Value="False">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="1,0,1,1" />
+                <Setter Property="BorderBrush" Value="{DynamicResource Brush.ItemBackgroundSecond}" />
+            </DataTrigger>
+            <Trigger Property="IsSelected" Value="true">
+                <!--<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />-->
+            </Trigger>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <ControlTemplate x:Key="ControlTemplate.TreeView.Default"
+                     TargetType="{x:Type TreeView}">
+        <Border x:Name="Bd"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True">
+            <ScrollViewer x:Name="_tv_scrollviewer_"
+                          Padding="{TemplateBinding Padding}"
+                          Background="{TemplateBinding Background}"
+                          CanContentScroll="False"
+                          Focusable="False"
+                          HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                          VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                <ItemsPresenter />
+            </ScrollViewer>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+            </Trigger>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="True">
+                <Setter TargetName="_tv_scrollviewer_" Property="CanContentScroll" Value="True" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="Style.TreeView.Default"
+           TargetType="TreeView">
+        <Setter Property="Background" Value="{DynamicResource Brush.BackgroundSecond}" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template" Value="{StaticResource ControlTemplate.TreeView.Default}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource Style.TreeViewItem.EventBranch}" />
+    </Style>
+
+
+
+
+</ResourceDictionary>

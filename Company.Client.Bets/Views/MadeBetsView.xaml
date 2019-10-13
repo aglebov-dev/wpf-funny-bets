@@ -1,0 +1,232 @@
+﻿<UserControl x:Class="Company.Client.Bets.Views.MadeBetsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Company.Wpf.Core"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:disign="clr-namespace:Company.Client.Bets.Design"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{d:DesignInstance Type=disign:MadeBetsDesign,
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="450"
+             d:DesignWidth="380"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Company.Client.Themes;component/DarkTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="Style.DataGrid.ColumnHeader.MadeBets"
+                   BasedOn="{StaticResource Style.DataGridColumn.Default}"
+                   TargetType="DataGridColumnHeader">
+                <Setter Property="Height" Value="auto" />
+                <Setter Property="FontFamily" Value="{StaticResource Font.Roboto}" />
+                <Setter Property="FontSize" Value="11" />
+                <Setter Property="Padding" Value="6" />
+                <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundThird}" />
+            </Style>
+            <Style x:Key="Style.DataGrid.Row.MadeBets"
+                   BasedOn="{StaticResource Style.DataGridRow.Light}"
+                   TargetType="DataGridRow">
+                <Setter Property="MinHeight" Value="20" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridRow}">
+                            <Border x:Name="DGR_Border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    SnapsToDevicePixels="True">
+                                <Border.ToolTip>
+                                    <ToolTip>
+                                        <ToolTip.Style>
+                                            <Style TargetType="ToolTip">
+                                                <Setter Property="ToolTipService.ShowDuration" Value="2" />
+                                                <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+                                                <Setter Property="ToolTipService.Placement" Value="Center" />
+                                                <Setter Property="ToolTipService.ShowDuration" Value="10000" />
+                                                <Setter Property="ToolTipService.HasDropShadow" Value="False" />
+                                                <Setter Property="Foreground" Value="White" />
+                                                <Setter Property="Background" Value="Black" />
+                                                <Setter Property="BorderBrush" Value="Transparent" />
+                                                <Setter Property="BorderThickness" Value="0" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ToolTip">
+                                                            <Grid>
+                                                                <Border Background="{TemplateBinding Background}"
+                                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                                        CornerRadius="3"
+                                                                        Opacity="0.8" />
+                                                                <ContentPresenter />
+                                                            </Grid>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ToolTip.Style>
+                                        <Border MinWidth="100"
+                                                MinHeight="30">
+                                            <ItemsControl Margin="6"
+                                                          Grid.IsSharedSizeScope="True"
+                                                          ItemsSource="{Binding Content}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition SharedSizeGroup="bet_info_c_1" />
+                                                                <ColumnDefinition SharedSizeGroup="bet_info_c_2" />
+                                                                <ColumnDefinition SharedSizeGroup="bet_info_c_3" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <TextBlock Margin="3"
+                                                                       Text="{Binding EventName}" />
+                                                            <TextBlock Grid.Column="1"
+                                                                       Margin="9,3"
+                                                                       Text="{Binding IntervalName}" />
+                                                            <TextBlock Grid.Column="2"
+                                                                       Margin="3"
+                                                                       Text="{Binding OucomeName}" />
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Border>
+                                    </ToolTip>
+                                </Border.ToolTip>
+                                <i:Interaction.Behaviors>
+                                    <controls:ToolTipPlacementBehavior HorizontalPlacement="Right"
+                                                                       VerticalPlacement="Center" />
+                                </i:Interaction.Behaviors>
+                                <SelectiveScrollingGrid>
+                                    <SelectiveScrollingGrid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </SelectiveScrollingGrid.ColumnDefinitions>
+                                    <SelectiveScrollingGrid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </SelectiveScrollingGrid.RowDefinitions>
+                                    <DataGridCellsPresenter Grid.Column="1"
+                                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    <DataGridDetailsPresenter Grid.Row="1"
+                                                              Grid.Column="1"
+                                                              SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                              Visibility="{TemplateBinding DetailsVisibility}" />
+                                    <DataGridRowHeader Grid.RowSpan="2"
+                                                       SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                       Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                                </SelectiveScrollingGrid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundSecond}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="Style.DataGridCell.MadeBets"
+                   BasedOn="{StaticResource Style.DataGridCell.Default}"
+                   TargetType="DataGridCell">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Foreground" Value="{StaticResource Brush.Foreground.Color2}" />
+                <Setter Property="BorderBrush" Value="{x:Null}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Focusable" Value="False" />
+                <Setter Property="Padding" Value="6,0" />
+            </Style>
+            <Style x:Key="Style.DataGridCell.TextBlock"
+                   TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBox Margin="3,6"
+                 Padding="9,3"
+                 Background="{StaticResource Brush.BackgroundThird}"
+                 Style="{StaticResource Style.TextBox.WaterHiddenToolTip}"
+                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Delay=300}"
+                 TextWrapping="NoWrap"
+                 ToolTip="введите девятизначный код" />
+
+        <DataGrid Grid.Row="1"
+                  CellStyle="{StaticResource Style.DataGridCell.MadeBets}"
+                  ColumnHeaderStyle="{StaticResource Style.DataGrid.ColumnHeader.MadeBets}"
+                  ColumnWidth="*"
+                  FontFamily="{StaticResource Font.Roboto}"
+                  FontSize="11"
+                  HorizontalScrollBarVisibility="Disabled"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Bets}"
+                  RowStyle="{StaticResource Style.DataGrid.Row.MadeBets}"
+                  Style="{StaticResource Style.DataGrid.Default.InnerScroll}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Number}"
+                                    ElementStyle="{StaticResource Style.DataGridCell.TextBlock}"
+                                    Header="Номер ставки" />
+                <DataGridTextColumn Binding="{Binding BetDate, StringFormat=dd.MM в hh\:mm}"
+                                    ElementStyle="{StaticResource Style.DataGridCell.TextBlock}"
+                                    Header="Дата" />
+                <DataGridTextColumn Binding="{Binding TotalBetAmount}"
+                                    Foreground="{StaticResource Brush.Color6.5}"
+                                    Header="Сумма, руб">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style BasedOn="{StaticResource Style.DataGrid.ColumnHeader.MadeBets}"
+                               TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="28">
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style BasedOn="{StaticResource Style.DataGridCell.MadeBets}"
+                               TargetType="DataGridCell">
+                            <Setter Property="OverridesDefaultStyle" Value="True" />
+                            <Setter Property="Foreground" Value="{StaticResource Brush.Foreground.Color2}" />
+                            <Setter Property="BorderBrush" Value="{x:Null}" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="Focusable" Value="False" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button HorizontalAlignment="Left"
+                                    Command="{Binding DataContext.SelectedMadeBetCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                    CommandParameter="{Binding}"
+                                    Style="{StaticResource Style.Button.Link}">
+                                <Path Height="12"
+                                      Data="{StaticResource Drawing.Geometry.Eye}"
+                                      Style="{StaticResource Style.Path.ForegroundFill}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

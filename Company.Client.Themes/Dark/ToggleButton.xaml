@@ -1,0 +1,114 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Company.Client.Themes;component/Fonts/Fonts.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Colors.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Drawing/Geometry/GeometryGroups.xaml" />
+        <ResourceDictionary Source="/Company.Client.Themes;component/Dark/Path.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="Style.ToggleButton.ComboBox"
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="templateRoot"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            SnapsToDevicePixels="true">
+                        <Border x:Name="splitBorder"
+                                Margin="0"
+                                HorizontalAlignment="Right"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="0"
+                                SnapsToDevicePixels="true">
+                            <Path x:Name="arrow"
+                                  Width="13"
+                                  Margin="7,0"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="{StaticResource Drawing.Geometry.ArrowDown}"
+                                  Stroke="{x:Null}"
+                                  StrokeThickness="10"
+                                  Style="{StaticResource Style.Path.ForegroundFill}" />
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="arrow" Property="Fill" Value="white" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="arrow" Property="Fill" Value="{DynamicResource Brush.Color4}" />
+                            <Setter TargetName="arrow" Property="Data" Value="{StaticResource Drawing.Geometry.ArrowUp}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="arrow" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style x:Key="ToggleButton.Style.Slider"
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="{StaticResource Brush.ItemBackgroundThird}" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid x:Name="grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Rectangle x:Name="Width_x_05"
+                                   VerticalAlignment="Stretch" />
+                        <Border x:Name="border"
+                                Grid.RowSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{Binding ElementName=Width_x_05, Path=ActualHeight}"
+                                SnapsToDevicePixels="true">
+                            <Ellipse x:Name="Ellipse"
+                                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                     Margin="0,0,0,0"
+                                     HorizontalAlignment="Right"
+                                     VerticalAlignment="Stretch"
+                                     Fill="{DynamicResource Brush.Color6.5}"
+                                     Stroke="Transparent"
+                                     StrokeThickness="3" />
+                        </Border>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="Ellipse" Property="Fill" Value="{DynamicResource Brush.Warning}" />
+                            <Setter TargetName="Ellipse" Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="Background" Value="{StaticResource Brush.Color0}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="OpacityMask" Value="#99000000" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
